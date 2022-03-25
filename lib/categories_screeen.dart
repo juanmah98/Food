@@ -15,8 +15,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         title: Text('Menu'),
       ),
       body: GridView(
+        padding: const EdgeInsets.all(25),
         children: DUMMY_CATEGORIES
-            .map((catData) => CategoryItem(catData.color, catData.title))
+            .map((catData) =>
+                CategoryItem(catData.id, catData.color, catData.title))
             .toList(),
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 200,
