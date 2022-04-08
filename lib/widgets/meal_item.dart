@@ -17,6 +17,41 @@ class mealItem extends StatelessWidget {
   @required this.duration
  });
 
+ String get complexityText{
+  
+  switch(complexity){
+    case Complexity.Simple: 
+      return 'Simple';
+      break;
+    case Complexity.Intermedio:
+      return 'Intermedio';
+      break;
+    case Complexity.Dificil:
+      return 'Dificil';
+      break;
+    default:
+      return 'Unknown';
+  }
+}
+
+ String get affordabilityText{
+  
+  switch(affordability){
+    case Affordability.Accesible: 
+      return 'Accesible';
+      break;
+    case Affordability.Caro:
+      return 'Caro';
+      break;
+    case Affordability.Lujoso:
+      return 'Lujoso';
+      break;
+    default:
+      return 'Unknown';
+  }
+
+ }
+
   void selectMeal(){
 
   }
@@ -36,9 +71,53 @@ class mealItem extends StatelessWidget {
         ),
         child: Image.network(imageUrl, height: 250, width: double.infinity, fit: BoxFit.cover,),
         ),
-      Text(title, style: TextStyle(),)
-      ],)
-    ],),
+      Positioned(
+        bottom: 20,
+        right: 10,
+              child: Container(
+                width: 220,
+                color: Colors.black54,
+                padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+                child: Text(title, style: TextStyle(fontSize: 22, color: Colors.white),
+        softWrap: true,
+        overflow: TextOverflow.fade,),
+              ),
+      )
+      ],
+      ),
+    Padding(
+      padding: EdgeInsets.all(20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Icon(Icons.schedule),
+              SizedBox(width: 6,),
+              Text('$duration min')
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Icon(Icons.work),
+              SizedBox(width: 6,),
+              Text(complexityText)
+            ],
+            ),
+
+            Row(
+            children: <Widget>[
+              Icon(Icons.attach_money),
+              SizedBox(width: 6,),
+              Text(affordabilityText)
+            ],
+            ),
+          
+        ],
+      ),
+    )
+    ],
+    ),
     ),
 
       
