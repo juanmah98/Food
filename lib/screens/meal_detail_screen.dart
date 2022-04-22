@@ -26,7 +26,7 @@ class MealDetailScreen extends StatelessWidget {
           Container(
             margin: EdgeInsets.symmetric(vertical: 15),
             child: Text(
-              'Ingredientes',
+              'Ingredientess',
               style: TextStyle(fontSize: 24,
                   fontFamily: 'RobotoCondensed',
                   fontWeight: FontWeight.bold ) 
